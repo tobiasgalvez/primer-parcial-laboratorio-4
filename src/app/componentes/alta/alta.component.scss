@@ -1,0 +1,22 @@
+.container {
+    max-width: 960px;
+    padding: 15px;
+    background-color: aliceblue;
+  }
+  
+  h2 {
+    margin-bottom: 30px;
+  }
+  
+  form .form-control {
+    border-radius: 0; // Mantener el borde cuadrado
+  }
+  
+  button[type="submit"] {
+    margin-top: 20px;
+  }
+  
+  // Estilos para la tarjeta de países
+  .card {
+    margin-top: 20px; // Espacio entre el formulario y la tarjeta
+  }

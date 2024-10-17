@@ -1,0 +1,32 @@
+/* Fondo de la página */
+body {
+    background-color: #f0f0f0; /* Fondo gris claro */
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilos para la barra de navegación */
+  nav {
+    background-color: #333; /* Fondo negro */
+    padding: 1rem; /* Espaciado interno */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    gap: 1rem; /* Separación entre botones */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  /* Estilos para los botones en la barra de navegación */
+  nav button {
+    background-color: #444; /* Fondo más claro que el nav */
+    color: white; /* Texto blanco */
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  /* Efecto hover en los botones */
+  nav button:hover {
+    background-color: #555; /* Color más claro al pasar el mouse */
+  }

@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap'; // Importa las funciones de Bootstrap
+@import 'bootstrap/scss/variables'; // Importa las variables de Bootstrap 
+
+*
+{
+    font-family: "Orbitron", sans-serif;
+    
+}
+
+body
+{
+    background-color: rgb(55, 52, 52);
+}
+
+
+ 

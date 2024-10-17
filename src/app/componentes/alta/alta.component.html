@@ -1,0 +1,71 @@
+<div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <h2>Formulario Alta de Chofer</h2>
+      </div>
+  
+      <div class="row g-5">
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Datos del Chofer</h4>
+          <form [formGroup]="choferForm" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" formControlName="nombre" required />
+                <div *ngIf="choferForm.get('nombre')?.invalid && (choferForm.get('nombre')?.dirty || choferForm.get('nombre')?.touched)" class="invalid-feedback d-block">
+                  <small *ngIf="choferForm.get('nombre')?.errors?.['required']">El nombre es requerido.</small>
+                  <small *ngIf="choferForm.get('nombre')?.errors?.['pattern']">Solo se permiten letras.</small>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="text" class="form-control" id="dni" formControlName="dni" required />
+                <div *ngIf="choferForm.get('dni')?.invalid && (choferForm.get('dni')?.dirty || choferForm.get('dni')?.touched)" class="invalid-feedback d-block">
+                  <small *ngIf="choferForm.get('dni')?.errors?.['required']">El DNI es requerido.</small>
+                  <small *ngIf="choferForm.get('dni')?.errors?.['pattern']">Debe contener solo números y tener 8 caracteres.</small>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" formControlName="edad" required />
+                <div *ngIf="choferForm.get('edad')?.invalid && (choferForm.get('edad')?.dirty || choferForm.get('edad')?.touched)" class="invalid-feedback d-block">
+                  <small *ngIf="choferForm.get('edad')?.errors?.['required']">La edad es requerida.</small>
+                  <small *ngIf="choferForm.get('edad')?.errors?.['min']">La edad mínima es 18 años.</small>
+                  <small *ngIf="choferForm.get('edad')?.errors?.['max']">La edad máxima es 50 años.</small>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="nroLicencia" class="form-label">Nro de Licencia</label>
+                <input type="text" class="form-control" id="nroLicencia" formControlName="nroLicencia" required />
+                <div *ngIf="choferForm.get('nroLicencia')?.invalid && (choferForm.get('nroLicencia')?.dirty || choferForm.get('nroLicencia')?.touched)" class="invalid-feedback d-block">
+                  <small *ngIf="choferForm.get('nroLicencia')?.errors?.['required']">El número de licencia es requerido.</small>
+                  <small *ngIf="choferForm.get('nroLicencia')?.errors?.['minlength']">Debe contener al menos 7 caracteres.</small>
+                  <small *ngIf="choferForm.get('nroLicencia')?.errors?.['pattern']">Debe contener solo números.</small>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="licenciaProfesional" class="form-label">Licencia Profesional</label>
+                <input id="licenciaProfesional" type="checkbox" formControlName="licenciaProfesional" />
+              </div>
+  
+              <div class="col-12">
+                <label for="nacionalidad" class="form-label">Nacionalidad</label>
+                <input type="text" id="nacionalidad" class="form-control" [value]="nacionalidadSeleccionada" readonly />
+                <app-lista-paises (paisSeleccionado)="onPaisSeleccionado($event)"></app-lista-paises>
+                <div *ngIf="choferForm.get('nacionalidad')?.invalid && (choferForm.get('nacionalidad')?.dirty || choferForm.get('nacionalidad')?.touched)" class="invalid-feedback d-block">
+                  <small *ngIf="choferForm.get('nacionalidad')?.errors?.['required']">La nacionalidad es requerida.</small>
+                </div>
+              </div>
+            </div>
+  
+            <hr class="my-4">
+            <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="choferForm.invalid">Dar de Alta</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>

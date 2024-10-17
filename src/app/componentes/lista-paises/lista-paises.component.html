@@ -1,0 +1,15 @@
+<!-- <div *ngFor="let pais of paisesFiltrados" (click)="seleccionarPais(pais)">
+    <img [src]="pais.flags.png" alt="{{ pais.name }}" width="30" />
+    {{ pais.name}}
+  </div> -->
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Selecciona un País</h5>
+      <div *ngFor="let pais of paisesFiltrados" (click)="seleccionarPais(pais)" class="list-group-item">
+        <img [src]="pais.flags.png" alt="{{ pais.name.common }}" width="30" class="me-2" />
+        {{ pais.name.common }}
+      </div>
+    </div>
+  </div>
+  
