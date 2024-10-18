@@ -1,0 +1,18 @@
+<div class="container my-5">
+    <div class="row">
+      <!-- tablaChoferes -->
+      <div class="col-12 mb-3">
+        <app-tabla-choferes (choferSeleccionado)="mostrarDetalles($event)"></app-tabla-choferes>
+      </div>
+    </div>
+    <div class="row">
+      <!-- detalleChofer -->
+      <div class="col-md-6 mb-3">
+        <app-detalle-chofer [chofer]="choferSeleccionado"></app-detalle-chofer>
+      </div>
+      <!-- detallePais -->
+      <div class="col-md-6 mb-3">
+        <app-detalle-pais [paisNombre]="choferSeleccionado?.pais"></app-detalle-pais>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,22 @@
+<div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>País</th>
+          <!-- <th>Acciones</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let chofer of choferes" (click)="seleccionarChofer(chofer)">
+          <td>{{ chofer.nombre }}</td>
+          <td>{{ chofer.edad }}</td>
+          <td>{{ chofer.pais }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="seleccionarChofer(chofer)">Ver Detalles</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
