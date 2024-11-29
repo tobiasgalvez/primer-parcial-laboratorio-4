@@ -4,53 +4,56 @@ import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
 import { Router, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 
-  email: string = "";
-  password: string = "";
-  loggedUser: string = "";
-  errorMessage: string = ""; // Propiedad para el mensaje de error
-  showError: boolean = false; // Indicador para mostrar el mensaje de error
+  email: string = '';
+  password: string = '';
 
-  constructor(public auth: Auth, private router: Router, private firestore: Firestore) { }
+  constructor(public auth: Auth, private router: Router) {}
 
   login() {
     if (!this.email || !this.password) {
-      console.log('Email o contraseña vacíos');
-      this.errorMessage = "Email o contraseña vacíos"; // Mensaje de error
-        this.showError = true; // Mostrar el mensaje de error
+      this.showAlert('Datos inválidos', 'Por favor, complete todos los campos correctamente.', 'error');
       return;
     }
-    console.log("Intentando iniciar sesión...");
-    
+
     signInWithEmailAndPassword(this.auth, this.email, this.password)
-      .then((res) => {
-        console.log('Inicio de sesión exitoso', res);
-        this.showError = false; // Ocultar el mensaje de error
-
-        // Registrar log en Firestore
-        //this.registrarLogUsuario(res.user.email);
-
-        this.router.navigate(['/']); // Redirigir al home
+      .then(() => {
+        this.showAlert('Inicio de sesión exitoso', 'Redirigiendo al inicio...', 'success');
+        setTimeout(() => {
+          this.router.navigate(['/']); // Redirige al home después de 2 segundos
+        }, 2000);
       })
-      .catch((e) => {
-        console.log('Error en el inicio de sesión:', e.code, e.message);
-        this.errorMessage = "Datos incorrectos"; // Mensaje de error
-        this.showError = true; // Mostrar el mensaje de error
+      .catch(() => {
+        this.showAlert('Error en el inicio de sesión', 'Los datos ingresados son incorrectos.', 'error');
       });
   }
 
   accesoRapidoLogin(email: string, password: string) {
     this.email = email;
     this.password = password;
+  }
+
+  private showAlert(title: string, text: string, icon: 'success' | 'error') {
+    Swal.fire({
+      title: title,
+      text: text,
+      icon: icon,
+      timer: 2000,
+      showConfirmButton: false,
+      backdrop: false,
+     
+    
+    });
   }
 
 
