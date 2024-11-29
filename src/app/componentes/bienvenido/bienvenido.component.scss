@@ -78,4 +78,10 @@ p {
     background-color: #1e1e2f; /* Fondo oscuro */
     color: #f8f9fa; /* Texto claro */
   }
-  
+
+  .form-control {
+    &::placeholder {
+      color: white;
+      opacity: 1;
+    }
+  }
