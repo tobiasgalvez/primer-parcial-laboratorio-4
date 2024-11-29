@@ -19,7 +19,7 @@ export class TablaChoferesComponent implements OnInit {
 
   ngOnInit(): void {
     // Crear referencia a la colección
-    const choferesRef = collection(this.firestore, 'choferes');
+    const choferesRef = collection(this.firestore, 'alta-choferes');
 
     // Escuchar los cambios en tiempo real
     onSnapshot(choferesRef, (snapshot) => {

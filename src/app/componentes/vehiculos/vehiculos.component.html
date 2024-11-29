@@ -1,0 +1,40 @@
+<div class="container py-4">
+    <!-- Jumbotron Header -->
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="row">
+        <!-- Tabla de vehículos -->
+        <div class="col-lg-12">
+          <h1 class="display-5 fw-bold">Gestión de Vehículos</h1>
+          <app-tabla-vehiculos
+            [vehiculos]="vehiculos"
+            (vehiculoSeleccionado)="seleccionarVehiculo($event)"
+          ></app-tabla-vehiculos>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Sección de contenido -->
+    <div class="row g-4">
+      <!-- Alta de vehículos -->
+      <div class="col-lg-4" style="border: 2px solid blue;">
+        <app-alta-vehiculo (nuevoVehiculo)="agregarVehiculo($event)"></app-alta-vehiculo>
+      </div>
+  
+      <!-- Modificación de vehículos -->
+      <div class="col-lg-4" style="border: 2px solid green;">
+        <app-modificacion-vehiculo
+          [vehiculo]="vehiculoSeleccionado"
+          (vehiculoModificado)="actualizarVehiculo($event)"
+        ></app-modificacion-vehiculo>
+      </div>
+  
+      <!-- Baja de vehículos -->
+      <div class="col-lg-4" style="border: 2px solid yellow;">
+        <app-baja-vehiculo
+          [vehiculo]="vehiculoSeleccionado"
+          (vehiculoEliminado)="borrarVehiculo($event)"
+        ></app-baja-vehiculo>
+      </div>
+    </div>
+  </div>
+  

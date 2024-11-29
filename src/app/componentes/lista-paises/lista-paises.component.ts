@@ -21,13 +21,14 @@ export class ListaPaisesComponent {
       // Filtra países de América y Europa
       this.paisesFiltrados = data.filter(pais => 
         pais.region === 'Americas' || pais.region === 'Europe'
-      ).slice(0, 3); // Limita a 3 países
+      ).slice(0, 10); // Limita a 3 países
     });
   }
 
   seleccionarPais(pais: any) {
-    console.log(pais);
-    this.paisSeleccionado.emit(pais.name.common); // Emitir el nombre del país como string
+    const nombreEnEspanol = pais.translations?.spa?.common || pais.name.common; // Prioriza el nombre en español
+    this.paisSeleccionado.emit(nombreEnEspanol); // Emitir el nombre en español o común
   }
+  
 
 }

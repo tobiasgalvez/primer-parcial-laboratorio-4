@@ -1,22 +1,21 @@
 .container {
-    max-width: 960px;
-    padding: 15px;
-    background-color: aliceblue;
-  }
-  
-  h2 {
-    margin-bottom: 30px;
-  }
-  
-  form .form-control {
-    border-radius: 0; // Mantener el borde cuadrado
-  }
-  
-  button[type="submit"] {
-    margin-top: 20px;
-  }
-  
-  // Estilos para la tarjeta de países
-  .card {
-    margin-top: 20px; // Espacio entre el formulario y la tarjeta
-  }
+  max-width: 960px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 30px;
+  color: #343a40;
+}
+
+.text-danger {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+button[type='submit'] {
+  margin-top: 20px;
+}

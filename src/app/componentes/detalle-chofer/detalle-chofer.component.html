@@ -1,6 +1,11 @@
-<div *ngIf="chofer">
-    <h3>Detalle del Chofer</h3>
-    <p><strong>Nombre:</strong> {{ chofer.nombre }}</p>
-    <p><strong>Edad:</strong> {{ chofer.edad }}</p>
-    <p><strong>Experiencia:</strong> {{ chofer.experiencia }} años</p>
+<div *ngIf="chofer" class="card shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5 class="card-title mb-0">Detalle del Chofer</h5>
   </div>
+  <div class="card-body">
+    <p><strong>Nombre:</strong> {{ chofer.nombre }}</p>
+    <p><strong>Edad:</strong> {{ chofer.edad }} años</p>
+    <p><strong>DNI:</strong> {{ chofer.dni || 'Sin especificar' }}</p>
+    <p><strong>País:</strong> {{ chofer.nacionalidad || 'Sin especificar' }}</p>
+  </div>
+</div>

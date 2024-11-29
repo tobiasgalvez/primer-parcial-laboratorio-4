@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header bg-primary text-white">
+      <h5 class="card-title">Alta de Vehículo</h5>
+    </div>
+    <div class="card-body">
+      <!-- Mensaje de Éxito -->
+      <div *ngIf="mensajeExito" class="alert alert-success" role="alert">
+        {{ mensajeExito }}
+      </div>
+  
+      <form [formGroup]="vehiculoForm" (ngSubmit)="crearVehiculo()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" formControlName="nombre" required />
+        </div>
+        <div class="mb-3">
+          <label for="tipo" class="form-label">Tipo</label>
+          <select class="form-select" id="tipo" formControlName="tipo" required>
+            <option value="" disabled selected>Seleccione un tipo</option>
+            <option value="terrestre">Terrestre</option>
+            <option value="aéreo">Aéreo</option>
+            <option value="marítimo">Marítimo</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="ruedas" class="form-label">Cantidad de Ruedas</label>
+          <input type="number" class="form-control" id="ruedas" formControlName="ruedas" required />
+        </div>
+        <div class="mb-3">
+          <label for="capacidad" class="form-label">Capacidad Promedio</label>
+          <input type="number" class="form-control" id="capacidad" formControlName="capacidad" required />
+        </div>
+        <button type="submit" class="btn btn-success w-100" [disabled]="vehiculoForm.invalid">
+          Crear Vehículo
+        </button>
+      </form>
+    </div>
+  </div>
+  

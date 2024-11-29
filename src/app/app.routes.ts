@@ -4,6 +4,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { AltaComponent } from './componentes/alta/alta.component';
 import { ChoferesComponent } from './componentes/choferes/choferes.component';
 import { AuthGuard } from './guards/auth.guard';
+import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component';
 
 export const routes: Routes = [
 
@@ -12,7 +13,9 @@ export const routes: Routes = [
     { path: 'bienvenido', component: BienvenidoComponent },
     { path: 'login', component: LoginComponent },
     { path: 'alta', component: AltaComponent, canActivate: [AuthGuard]},
-    {path: 'choferes', component: ChoferesComponent, canActivate: [AuthGuard]}
+    {path: 'choferes', component: ChoferesComponent, canActivate: [AuthGuard]},
+    {path: 'vehiculos', component: VehiculosComponent, canActivate: [AuthGuard]}
+
 
 
 

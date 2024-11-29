@@ -1,0 +1,81 @@
+/* Fondo general */
+body {
+    background-color: #1e1e2f; /* Fondo oscuro */
+    color: #f8f9fa; /* Texto claro */
+  }
+  
+  /* Contenedor de la página */
+  div {
+    max-width: 600px;
+    margin: 2rem auto; /* Centrado vertical y horizontal */
+    background: #2b2b3c; /* Fondo del contenedor */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Estilo del input */
+  input[type='text'] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #3c3c50;
+    color: white;
+  }
+  
+  /* Estilo del botón */
+  button {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    margin-top: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover para el botón */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo de la imagen */
+  img {
+    display: block;
+    margin: 1rem auto;
+    border-radius: 50%;
+    border: 4px solid #007bff;
+  }
+  
+/* Estilo para los párrafos */
+p {
+    text-align: center;
+    font-size: 1rem; /* Tamaño de fuente más claro */
+    color: #e2e2e2; /* Color gris claro para mejor contraste */
+    margin: 0.5rem 0; /* Espaciado vertical */
+  }
+  
+  /* Títulos y texto centrados */
+  h1, h2 {
+    text-align: center;
+    color: #ffffff; /* Texto blanco para los títulos */
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Fondo general */
+  body {
+    background-color: #1e1e2f; /* Fondo oscuro */
+    color: #f8f9fa; /* Texto claro */
+  }
+  

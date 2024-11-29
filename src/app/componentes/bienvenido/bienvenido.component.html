@@ -1,17 +1,26 @@
-<div *ngIf="user">
-   
-    
-    <!-- <button (click)="IrAOtraRuta('alta')">Alta de Choferes</button>
-    <button (click)="IrAOtraRuta('choferes')">Choferes</button> -->
-    <button (click)="CerrarSesion()">Cerrar sesion</button>
+<div class="container">
+
+  <!-- Input y botón solo visibles antes de cargar un usuario -->
+  <div *ngIf="!isUserLoaded">
+    <input
+      type="text"
+      [(ngModel)]="githubUsername"
+      class="form-control"
+      placeholder="Ingrese un usuario de GitHub"
+    />
+    <button (click)="loadGithubUserData(githubUsername)" class="btn btn-primary mt-3">
+      Buscar
+    </button>
   </div>
-  
-  <div *ngIf="!user">
-    <!-- <p>Cargando información...</p> -->
-    <h1>Bienvenido {{ userData.name }}</h1>
-    <img [src]="userData.avatar_url" alt="{{ userData.name }}" width="200" />
+
+  <!-- Mostrar datos del usuario cargado -->
+  <div *ngIf="userData">
+    <h2>Bienvenido {{ userData.name || 'Usuario desconocido' }}</h2>
+    <img *ngIf="userData.avatar_url" [src]="userData.avatar_url" alt="{{ userData.name }}" class="img-fluid rounded-circle" />
     <p><strong>Usuario de GitHub:</strong> {{ userData.login }}</p>
-    <!-- <p><strong>Biografía:</strong> {{ userData.bio }}</p> -->
     <p><strong>Número de Repositorios:</strong> {{ userData.public_repos }}</p>
+    <button (click)="isUserLoaded = false" class="btn btn-secondary mt-3">
+      Buscar otro usuario
+    </button>
   </div>
-  
+</div>

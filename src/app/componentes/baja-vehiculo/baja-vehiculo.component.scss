@@ -1,0 +1,22 @@
+.card {
+    height: 100%; /* Asegura que la tarjeta ocupe toda la altura de la columna */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el contenido dentro de la tarjeta */
+  }
+  
+  
+  .card-header {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .card-body {
+    text-align: center;
+  }
+  
+
+  .btn
+  {
+    margin-top: 310px;
+  }

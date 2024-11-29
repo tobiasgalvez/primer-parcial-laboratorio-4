@@ -1,18 +1,21 @@
-<div class="container my-5">
-    <div class="row">
-      <!-- tablaChoferes -->
-      <div class="col-12 mb-3">
-        <app-tabla-choferes (choferSeleccionado)="mostrarDetalles($event)"></app-tabla-choferes>
-      </div>
+<div class="container py-4">
+  <!-- Jumbotron Header con Tabla de Choferes -->
+  <div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
+    <h1 class="display-5 fw-bold text-center mb-4">Gestión de Choferes</h1>
+    <!-- Tabla de Choferes dentro del Jumbotron -->
+    <app-tabla-choferes (choferSeleccionado)="mostrarDetalles($event)"></app-tabla-choferes>
+  </div>
+
+  <!-- Detalles del Chofer y País -->
+  <div class="row g-4">
+    <!-- Detalle del Chofer -->
+    <div class="col-lg-6" style="border: 2px solid blue;">
+      <app-detalle-chofer [chofer]="choferSeleccionado"></app-detalle-chofer>
     </div>
-    <div class="row">
-      <!-- detalleChofer -->
-      <div class="col-md-6 mb-3">
-        <app-detalle-chofer [chofer]="choferSeleccionado"></app-detalle-chofer>
-      </div>
-      <!-- detallePais -->
-      <div class="col-md-6 mb-3">
-        <app-detalle-pais [paisNombre]="choferSeleccionado?.pais"></app-detalle-pais>
-      </div>
+
+    <!-- Detalle del País -->
+    <div class="col-lg-6" style="border: 2px solid green;">
+      <app-detalle-pais [paisNombre]="choferSeleccionado?.nacionalidad"></app-detalle-pais>
     </div>
   </div>
+</div>

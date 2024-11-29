@@ -1,6 +1,13 @@
-<div *ngIf="pais">
-    <h3>Detalle del País</h3>
-    <p><strong>País:</strong> {{ pais.nombre }}</p>
-    <p><strong>Capital:</strong> {{ pais.capital }}</p>
-    <p><strong>Región:</strong> {{ pais.region }}</p>
+<div *ngIf="pais" class="card shadow-sm">
+  <div class="card-header bg-success text-white">
+    <h5 class="card-title mb-0">Detalle del País</h5>
   </div>
+  <div class="card-body">
+    <p><strong>País:</strong> {{ pais.translations?.spa?.common || pais.name.common }}</p>
+    <p><strong>Capital:</strong> {{ pais.capital ? pais.capital[0] : 'Sin capital' }}</p>
+    <p><strong>Región:</strong> {{ regionEnEspanol(pais.region) }}</p>
+    <p *ngIf="pais.flags">
+      <img [src]="pais.flags.png" alt="Bandera de {{ pais.translations?.spa?.common || pais.name.common }}" width="50" />
+    </p>
+  </div>
+</div>

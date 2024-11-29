@@ -1,0 +1,15 @@
+<div *ngIf="vehiculo" class="card shadow-sm">
+    <div class="card-header bg-danger text-white">
+      <h5 class="card-title mb-0">Baja de Vehículo</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        ¿Estás seguro que deseas eliminar el vehículo 
+        <strong>{{ vehiculo.nombre }}</strong>?
+      </p>
+      <button class="btn btn-danger w-100" (click)="eliminarVehiculo()">
+        Eliminar
+      </button>
+    </div>
+  </div>
+  

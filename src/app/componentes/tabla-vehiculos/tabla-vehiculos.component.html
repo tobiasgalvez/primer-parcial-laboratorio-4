@@ -1,0 +1,25 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Ruedas</th>
+          <th>Capacidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehiculo of vehiculos">
+          <td>{{ vehiculo.nombre }}</td>
+          <td>{{ vehiculo.tipo }}</td>
+          <td>{{ vehiculo.ruedas }}</td>
+          <td>{{ vehiculo.capacidad }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="seleccionarVehiculo(vehiculo)">Seleccionar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

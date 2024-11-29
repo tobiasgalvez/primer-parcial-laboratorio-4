@@ -15,8 +15,9 @@ export class AltaComponent {
 
   choferForm: FormGroup;
   nacionalidadSeleccionada: string = ''; // Variable para almacenar la nacionalidad seleccionada
+  mensajeExito: string = ''; // Variable para almacenar el mensaje de éxito
 
-  constructor(private fb: FormBuilder, private firestore: Firestore) { // Inyecta Firestore en el constructor
+  constructor(private fb: FormBuilder, private firestore: Firestore) {
     this.choferForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
       dni: ['', [Validators.required, Validators.pattern('^[0-9]{8}$')]],
@@ -48,7 +49,18 @@ export class AltaComponent {
       try {
         const docRef = await addDoc(collection(this.firestore, 'alta-choferes'), this.choferForm.value);
         console.log('Documento escrito con ID: ', docRef.id);
-        // Aquí podrías mostrar un mensaje de éxito o redirigir a otra página
+        
+        // Mostrar mensaje de éxito y limpiar el formulario
+        this.mensajeExito = 'Chofer agregado con éxito.';
+        this.choferForm.reset(); // Limpia los campos del formulario
+
+        // Limpiar el mensaje después de 2 segundos
+        setTimeout(() => {
+          this.mensajeExito = '';
+      }, 2000);
+
+        this.nacionalidadSeleccionada = ''; // Limpiar la nacionalidad seleccionada
+
       } catch (e) {
         console.error('Error agregando documento: ', e);
       }

@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GithubService {
-
-  private apiUrl = 'https://api.github.com/users/octaviovillegas'; // Cambia por tu usuario si es necesario
+  private apiUrl = 'https://api.github.com/users'; // URL base de la API de GitHub
 
   constructor(private http: HttpClient) { }
 
-  getUserData(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getUserData(username: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${username}`);
   }
 }
+
