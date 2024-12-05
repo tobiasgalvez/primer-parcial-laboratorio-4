@@ -1,19 +1,23 @@
 <div class="container py-4">
-  <!-- Jumbotron Header con Tabla de Choferes -->
+  <!-- Botón para descargar CSV (visible solo para administradores) -->
+  <button
+    class="btn btn-primary mb-3"
+    *ngIf="esAdministrador"
+    (click)="generarCSV()"
+  >
+    Descargar CSV de Choferes
+  </button>
+
+  <!-- Resto del contenido -->
   <div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
     <h1 class="display-5 fw-bold text-center mb-4">Gestión de Choferes</h1>
-    <!-- Tabla de Choferes dentro del Jumbotron -->
     <app-tabla-choferes (choferSeleccionado)="mostrarDetalles($event)"></app-tabla-choferes>
   </div>
 
-  <!-- Detalles del Chofer y País -->
   <div class="row g-4">
-    <!-- Detalle del Chofer -->
     <div class="col-lg-6" style="border: 2px solid blue;">
       <app-detalle-chofer [chofer]="choferSeleccionado"></app-detalle-chofer>
     </div>
-
-    <!-- Detalle del País -->
     <div class="col-lg-6" style="border: 2px solid green;">
       <app-detalle-pais [paisNombre]="choferSeleccionado?.nacionalidad"></app-detalle-pais>
     </div>

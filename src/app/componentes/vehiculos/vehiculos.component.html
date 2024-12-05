@@ -1,5 +1,12 @@
 <div class="container py-4">
     <!-- Jumbotron Header -->
+    <button
+    class="btn btn-primary mb-3"
+    *ngIf="esAdministrador"
+    (click)="generarPDF()"
+  >
+    Descargar PDF de Vehículos
+  </button>
     <div class="p-5 mb-4 bg-light rounded-3">
       <div class="row">
         <!-- Tabla de vehículos -->

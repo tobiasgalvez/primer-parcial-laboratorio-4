@@ -35,6 +35,16 @@ export class DetallePaisComponent implements OnChanges {
     });
   }
 
+  obtenerCapital(): string {
+    if (!this.pais || !this.pais.name || !this.pais.capital) {
+      return 'Sin capital';
+    }
+    return this.paisesService.getCapitalEnEspanol(
+      this.pais.translations?.spa?.common || this.pais.name.common,
+      this.pais.capital[0]
+    );
+  }
+
   regionEnEspanol(region: string): string {
     const traduccionesRegiones: { [key: string]: string } = {
       Africa: 'África',
@@ -46,5 +56,4 @@ export class DetallePaisComponent implements OnChanges {
     };
     return traduccionesRegiones[region] || region; // Devuelve la traducción o el nombre original si no hay traducción
   }
-  
 }

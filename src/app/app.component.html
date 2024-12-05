@@ -1,10 +1,12 @@
 <nav>
   <button (click)="IrAOtraRuta('/bienvenido')">Home</button>
   <button (click)="IrAOtraRuta('/login')" *ngIf="!user">Login</button>
+  <button (click)="IrAOtraRuta('/registro')" *ngIf="!user">Registrarse</button>
   <button (click)="IrAOtraRuta('/alta')" *ngIf="user">Alta Chofer</button>
   <button (click)="IrAOtraRuta('/choferes')" *ngIf="user">Choferes</button>
-  <button (click)="IrAOtraRuta('/vehiculos')" *ngIf="user">Vehiculos</button>
+  <button (click)="IrAOtraRuta('/vehiculos')" *ngIf="user?.email === 'admin@admin.com'">Vehiculos</button>
   <button (click)="CerrarSesion()" *ngIf="user">Cerrar Sesión</button>
 </nav>
+
 
 <router-outlet></router-outlet>
